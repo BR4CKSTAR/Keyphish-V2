@@ -13,4 +13,4 @@ Ubuntu, Kali linux, Debian
 
 NOTA:
 Para cambiar la imagen del perfil renombre la nueva imagen como "imagen.jpg"
-y muevala hacia la carpeta Keyphish
+y muevala hacia la carpeta Keyphish-V2
