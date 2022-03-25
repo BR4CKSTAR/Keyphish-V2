@@ -7,6 +7,10 @@ Ubuntu, Kali linux, Debian
 
 - git clone https://github.com/Mr-Star21/Keyphish-V2.git
 
-- cd Keyphish
+- cd Keyphish-V2
 
 - python Keyphish.py
+
+NOTA:
+Para cambiar la imagen del perfil renombre la nueva imagen como "imagen.jpg"
+y muevala hacia la carpeta Keyphish
