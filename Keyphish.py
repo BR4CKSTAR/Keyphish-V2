@@ -1,4 +1,6 @@
 #-*-coding: utf-8 -*-
+## Dedicado a Jenny Estrella, inspiración para terminar el código.
+
 ## Módulos a importar
 import os
 import time
