@@ -31,6 +31,7 @@ def usuarionombre():
          os.system("python Keyphish.py")
     clearConsole()
     os.system("python Keyphish.py")
+    archivo.close()
 
 def fotoperfil():
     with open('index.html', 'r') as archivo:
@@ -48,6 +49,7 @@ def fotoperfil():
          os.system("python Keyphish.py")
     clearConsole()
     os.system("python Keyphish.py")
+    archivo.close()
 
 def contra():
     archivo = open('founduser.txt','w')
@@ -77,6 +79,7 @@ def link():
     ?>''')
 
     escribir.write(r)
+    escribir.close()
     if y==1:
         clearConsole()
         os.system("python Keyphish.py")
