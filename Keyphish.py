@@ -118,7 +118,6 @@ if y==0:
 
 if y==1:
     clearConsole()
-    os.system("python Keyphish.py")
     logo()
     ngrok()
 
