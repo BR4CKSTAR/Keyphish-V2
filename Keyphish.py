@@ -1,5 +1,14 @@
 #-*-coding: utf-8 -*-
 
+"""
+Descargo de responsabilidad:
+Este script, denominado Keyphish, es una herramienta creada con fines educativos únicamente.
+El uso de esta herramienta para acceder, interceptar o robar contraseñas sin el consentimiento explícito del propietario
+de la cuenta es ilegal y está estrictamente prohibido. El autor y los contribuyentes de este script no asumen ninguna
+responsabilidad por cualquier mal uso o consecuencia legal derivada del uso de este script.
+El usuario asume la responsabilidad total y el riesgo asociado con el uso de esta herramienta.
+Se recomienda encarecidamente utilizar esta herramienta únicamente en entornos controlados y con fines educativos legítimos.
+"""
 
 ## Módulos a importar
 import os
